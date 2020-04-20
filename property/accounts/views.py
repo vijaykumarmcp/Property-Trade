@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
 from contacts.models import Contact
+from django.http import JsonResponse
+from django.http import HttpResponse
 
 
 def login(request):
@@ -12,6 +14,7 @@ def login(request):
         user=auth.authenticate(username=username,password=password)
 
         if user is not None:
+
             auth.login(request,user)
             messages.success(request,'Successfully logged in')
             return redirect('dashboard')
@@ -68,4 +71,5 @@ def dashboard(request):
     context={
         'contacts':user_contacts
     }
+    print(context)
     return render(request,'accounts/dashboard.html',context)
