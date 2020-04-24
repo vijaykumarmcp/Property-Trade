@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'property.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-"""DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'PropertyData',
@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'property.wsgi.application'
         'PASSWORD':'12345678',
         'HOST':'localhost'
     }
-}"""
+}
 
 DATABASES = {
     'default': {
