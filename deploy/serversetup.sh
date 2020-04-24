@@ -29,7 +29,7 @@ $PROJECT_BASE_PATH/env/bin/pip install uwsgi
 
 
 # Run migrations and collectstatic
-cd $PROJECT_BASE_PATH
+cd $PROJECT_BASE_PATH/property
 $PROJECT_BASE_PATH/env/bin/python manage.py migrate
 $PROJECT_BASE_PATH/env/bin/python manage.py collectstatic --noinput
 
