@@ -13,7 +13,7 @@ locale-gen en_GB.UTF-8
 # Install Python, SQLite and pip
 echo "Installing dependencies..."
 apt-get update
-apt-get install -y python3-dev python3-venv sqlite python-pip supervisor nginx git libpq-dev
+apt-get install -y python3-dev python3-venv sqlite python-pip supervisor nginx git libpq-dev libmysqlclient-dev
 
 
 # Create project directory
@@ -26,6 +26,7 @@ python3 -m venv $PROJECT_BASE_PATH/env
 
 $PROJECT_BASE_PATH/env/bin/pip install -r $PROJECT_BASE_PATH/requirements.txt
 $PROJECT_BASE_PATH/env/bin/pip install uwsgi
+$PROJECT_BASE_PATH/env/bin/pip install mysqlclient
 
 
 # Run migrations and collectstatic
@@ -41,7 +42,7 @@ supervisorctl update
 supervisorctl restart property
 
 # Setup nginx to make our application accessible.
-cp $PROJECT_BASE_PATH/deploy/nginx.conf /etc/nginx/sites-available/property.conf
+cp $PROJECT_BASE_PATH/deploy/property_nginx.conf /etc/nginx/sites-available/property.conf
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/property.conf /etc/nginx/sites-enabled/property.conf
 systemctl restart nginx.service

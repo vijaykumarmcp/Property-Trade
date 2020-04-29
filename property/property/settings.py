@@ -25,7 +25,7 @@ SECRET_KEY = '&@cm3dr+p(^@eap&9d=n)hooukr%@7(mgjpw!pv7$rux2p05b3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['104.208.159.195','nginxapp.eastus2.cloudapp.azure.com','www.onlinemakan.ml','onlinemakan.ml']
 
 
 # Application definition
@@ -80,22 +80,23 @@ WSGI_APPLICATION = 'property.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-"""DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'PropertyData',
-        'USER':'postgres',
-        'PASSWORD':'12345678',
-        'HOST':'localhost'
-    }
-}"""
-
 DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'property_db',
+        'USER':'root',
+        'PASSWORD':'12345678',
+        'HOST':'10.10.1.132'
+        'PORT':'3306'
+    }
+}
+
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}
+}"""
 
 
 # Password validation
