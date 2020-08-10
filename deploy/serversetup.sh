@@ -13,7 +13,7 @@ locale-gen en_GB.UTF-8
 # Install Python, SQLite and pip
 echo "Installing dependencies..."
 apt-get update
-apt-get install -y python3-dev python3-venv sqlite python-pip supervisor nginx git libpq-dev libmysqlclient-dev
+apt-get install -y python3-dev python3-venv sqlite python-pip supervisor nginx git libpq-dev mysql-client libmysqlclient-dev
 
 
 # Create project directory
@@ -31,7 +31,7 @@ $PROJECT_BASE_PATH/env/bin/pip install mysqlclient
 
 # Run migrations and collectstatic
 cd $PROJECT_BASE_PATH/property
-$PROJECT_BASE_PATH/env/bin/python manage.py migrate
+#$PROJECT_BASE_PATH/env/bin/python manage.py migrate
 $PROJECT_BASE_PATH/env/bin/python manage.py collectstatic --noinput
 
 

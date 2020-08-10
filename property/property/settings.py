@@ -25,7 +25,7 @@ SECRET_KEY = '&@cm3dr+p(^@eap&9d=n)hooukr%@7(mgjpw!pv7$rux2p05b3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['104.208.159.195','nginxapp.eastus2.cloudapp.azure.com','www.onlinemakan.ml','onlinemakan.ml']
+ALLOWED_HOSTS = ['www.onlinemakan.ml','onlinemakan.ml','onlinemakan.azurewebsites.net']
 
 
 # Application definition
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,10 +85,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'property_db',
-        'USER':'root',
-        'PASSWORD':'12345678',
-        'HOST':'10.10.1.132'
-        'PORT':'3306'
+        'USER':'vijay@nginx-paas-db',
+        'PASSWORD':'Independent12#',
+        'HOST':'nginx-paas-db.mysql.database.azure.com',
+        'PORT':'3306',
     }
 }
 
